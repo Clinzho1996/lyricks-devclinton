@@ -24,7 +24,26 @@ export const shazamCoreApi = createApi({
       query: (searchTerm) =>
         `/search/?search_type=SONGS_ARTISTS&query=${searchTerm}`,
     }),
+    getSongDetails: builder.query({
+      query: ({ songid }) => `/songs/v2/get-details?track_id=${songid}`,
+    }),
+    getSongRelated: builder.query({
+      query: ({ songid }) => `/songs/list-recommendations?track_id=${songid}`,
+    }),
+    getSongsByGenre: builder.query({
+      query: (genre) => `v1/charts/genre-world?genre_code=${genre}`,
+    }),
+    getSongsByCountry: builder.query({
+      query: (countryCode) => `v1/charts/country?country_code=${countryCode}`,
+    }),
   }),
 });
 
-export const { useGetTopChartsQuery, useGetSongsBySearchQuery } = shazamCoreApi;
+export const {
+  useGetTopChartsQuery,
+  useGetSongsBySearchQuery,
+  useGetSongDetailsQuery,
+  useGetSongRelatedQuery,
+  useGetSongsByGenreQuery,
+  useGetSongsByCountryQuery,
+} = shazamCoreApi;
