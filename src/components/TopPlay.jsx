@@ -122,7 +122,7 @@ const TopPlay = () => {
           modules={[FreeMode]}
           className="mt-4"
         >
-          {topPlays?.slice(0, 5).map((artist) => (
+          {topPlays?.slice(0, 10).map((artist) => (
             <SwiperSlide
               key={artist?.key}
               style={{ width: "25%", height: "auto" }}
